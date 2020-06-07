@@ -15,8 +15,7 @@ security:
       access-token-uri: http://localhost:8080/oauth/token
       user-authorization-uri: http://localhost:8080/oauth/authorize
     resource:
-      token-info-uri: http://localhost:8080/check_token
-      user-info-uri: http://localhost:8080/userinfo
+      token-info-uri: http://localhost:8080/oauth/check_token
 
 spring:
   main:
