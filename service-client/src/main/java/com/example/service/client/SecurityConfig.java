@@ -1,21 +1,18 @@
 package com.example.service.client;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.oauth2.client.OAuth2ClientContext;
+import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.web.client.RestOperations;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 
 @Configuration
-@EnableOAuth2Sso
 @Order(value = 0)
-public class SecurityConfig extends WebSecurityConfigurerAdapter { 
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
@@ -25,11 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
             .disable();
     }
-    
 
     @Bean
-    public RestOperations restTemplate(OAuth2ProtectedResourceDetails resource, @Qualifier("oauth2ClientContext") OAuth2ClientContext oauth2ClientContext) {
-        return new OAuth2RestTemplate(resource, oauth2ClientContext);
+    @Autowired
+    public OAuth2RestOperations restTemplate(ClientCredentialsResourceDetails clientCredentialsResourceDetails) {
+        return new OAuth2RestTemplate(clientCredentialsResourceDetails);
     }
 }
 
