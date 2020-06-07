@@ -1,0 +1,20 @@
+server:
+    port: 9082
+logging:
+    level:
+        root: INFO
+        org.springframework.web: INFO
+security:
+    oauth2:
+        client:
+            client-id: serviceClient
+            client-secret: secret
+            grant-type: client_credentials
+            access-token-uri: http://localhost:8080/oauth/token
+            user-authorization-uri: http://localhost:8080/oauth/authorize
+        resource:
+            token-info-uri: http://localhost:8080/check_token
+            user-info-uri: http://localhost:8080/userinfo
+spring:
+    main:
+        allow-bean-definition-overriding: true
