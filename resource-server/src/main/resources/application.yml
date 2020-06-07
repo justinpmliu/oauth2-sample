@@ -1,3 +1,11 @@
+server:
+  port: 9081
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+
 security:
   oauth2:
     client:
@@ -6,10 +14,3 @@ security:
     resource:
       token-info-uri: http://localhost:8080/oauth/check_token
 
-server:
-  port: 9081
-logging:
-  level:
-    root: INFO
-    org.springframework.web: INFO      
-      
