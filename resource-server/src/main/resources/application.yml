@@ -8,8 +8,6 @@ logging:
 
 security:
   oauth2:
-    client:
-      client-id: resServer
-      client-secret: secret
     resource:
-      token-info-uri: http://localhost:8080/oauth/check_token
+      jwt:
+        key-value: justinliu
