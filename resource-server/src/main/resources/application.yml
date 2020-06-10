@@ -5,3 +5,9 @@ logging:
   level:
     root: INFO
     org.springframework.web: INFO
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-uri: http://localhost:8080/oauth/token_key

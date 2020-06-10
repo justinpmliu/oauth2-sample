@@ -7,6 +7,6 @@ jasypt:
     keyObtentionIterations: 10000
 
 jwt:
-  key-store: /key/auth_store.jks
+  key-store: /oauth/auth_store.jks
   store-pass: ENC(C9S/riFqH1Xm8GRSqZws7REooMNN1Tr9RvYY3vHBWf0=)
   key-alias: auth_store
