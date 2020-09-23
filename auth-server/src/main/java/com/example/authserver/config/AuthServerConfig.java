@@ -28,26 +28,26 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 				.secret("{noop}secret")
 				.autoApprove(true)
 				.authorizedGrantTypes("client_credentials")
-				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
+				.authorities("ROLE_CLIENT")
 				.scopes("READ", "WRITE", "TRUST")
 				.and()
 				.withClient("resServer")
 				.secret("{noop}secret")
 				.autoApprove(true)
 				.authorizedGrantTypes("client_credentials")
-				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
+				.authorities("ROLE_TRUSTED_CLIENT")
 				.scopes("READ", "WRITE", "TRUST");
 	}
  
 	@Override
-	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
 		endpoints
 				.tokenStore(jwtTokenStore)
 				.accessTokenConverter(jwtAccessTokenConverter);
 	}
 
 	@Override
-	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+	public void configure(AuthorizationServerSecurityConfigurer security) {
 		security
 				.tokenKeyAccess("permitAll()")
 				.checkTokenAccess("isAuthenticated()");

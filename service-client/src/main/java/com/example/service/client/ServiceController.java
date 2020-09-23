@@ -15,10 +15,10 @@ import org.springframework.http.ResponseEntity;
 @Configuration
 public class ServiceController {
 
-@Autowired
-public RestOperations template;
+    @Autowired
+    public RestOperations template;
 	
-    @RequestMapping(value="/test",method=RequestMethod.POST, produces={"application/JSON"}, consumes={"text/plain"})
+    @RequestMapping(value="/test",method=RequestMethod.POST, produces={"application/json"}, consumes={"text/plain"})
     public String getShipmentDetails(@RequestParam(value="name", defaultValue="0") String name) {
         ResponseEntity<String> result = template.postForEntity("http://localhost:9081/hello",name,String.class);
         return result.getBody();
