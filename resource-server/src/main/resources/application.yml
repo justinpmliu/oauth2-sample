@@ -11,3 +11,12 @@ security:
     resource:
       jwt:
         key-uri: http://localhost:8080/oauth/token_key
+
+spring:
+  application:
+    name: resource-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -10,3 +10,12 @@ jwt:
   key-store: /oauth/auth_store.jks
   store-pass: ENC(C9S/riFqH1Xm8GRSqZws7REooMNN1Tr9RvYY3vHBWf0=)
   key-alias: auth_store
+
+spring:
+  application:
+    name: auth-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
