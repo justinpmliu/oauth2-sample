@@ -1,4 +1,4 @@
-package com.example.service.client;
+package com.example.service.client.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class ServiceController {
     @Autowired
     public RestOperations template;
 	
-    @RequestMapping(value="/test",method=RequestMethod.POST, produces={"application/json"}, consumes={"text/plain"})
+    @RequestMapping(value="/test",method=RequestMethod.POST, produces={"text/plain"}, consumes={"text/plain"})
     public String getShipmentDetails(@RequestParam(value="name", defaultValue="0") String name) {
         ResponseEntity<String> result = template.postForEntity("http://localhost:9081/hello",name,String.class);
         return result.getBody();
