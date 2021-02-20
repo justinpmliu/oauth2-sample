@@ -1,6 +1,7 @@
 package com.example.service.client.controller;
 
 
+import com.example.service.client.feign.ResourceServerFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,11 @@ import org.springframework.http.ResponseEntity;
 public class ServiceController {
 
     @Autowired
-    private RestOperations template;
+    private ResourceServerFeign feign;
 	
     @RequestMapping(value="/test",method=RequestMethod.GET)
     public String getShipmentDetails(@RequestParam(value="name", defaultValue="0") String name) {
-        ResponseEntity<String> result = template.postForEntity("http://localhost:8080/api/hello",name,String.class);
-        return result.getBody();
+        return feign.getHello(name);
     }
-    
 
 }
