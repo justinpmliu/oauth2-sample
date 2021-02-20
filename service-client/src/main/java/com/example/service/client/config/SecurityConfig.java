@@ -1,5 +1,6 @@
 package com.example.service.client.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .csrf()
             .disable();
+    }
+
+    @Bean
+    @Autowired
+    public OAuth2RestOperations restTemplate(ClientCredentialsResourceDetails clientCredentialsResourceDetails) {
+        return new OAuth2RestTemplate(clientCredentialsResourceDetails);
     }
 
     @Bean
