@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public OAuth2RestOperations restTemplate() {
+    public OAuth2RestOperations myRestTemplate() {
         return new OAuth2RestTemplate(myClientCredentialsResourceDetails());
     }
 }
