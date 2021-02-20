@@ -1,6 +1,7 @@
 package com.example.service.client.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -27,6 +28,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public OAuth2RestOperations restTemplate(ClientCredentialsResourceDetails clientCredentialsResourceDetails) {
         return new OAuth2RestTemplate(clientCredentialsResourceDetails);
+    }
+
+    @Bean
+    @ConfigurationProperties("my-resource.security.oauth2.client")
+    public ClientCredentialsResourceDetails myClientCredentialsResourceDetails(){
+        return new ClientCredentialsResourceDetails();
+    }
+
+    @Bean
+    public OAuth2RestOperations myRestTemplate() {
+        return new OAuth2RestTemplate(myClientCredentialsResourceDetails());
     }
 }
 
