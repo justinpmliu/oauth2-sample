@@ -18,7 +18,7 @@ public class ServiceController {
     @Autowired
     private ResourceServerFeign feign;
 	
-    @RequestMapping(value="/test",method=RequestMethod.GET, produces={"text/plain"}, consumes={"text/plain"})
+    @RequestMapping(value="/test",method=RequestMethod.GET)
     public String getShipmentDetails(@RequestParam(value="name", defaultValue="0") String name) {
         return feign.getHello(name);
     }
