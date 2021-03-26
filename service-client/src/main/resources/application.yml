@@ -15,16 +15,6 @@ security:
       access-token-uri: http://localhost:8080/oauth/token
       user-authorization-uri: http://localhost:8080/oauth/authorize
 
-my-resource:
-  security:
-    oauth2:
-      client:
-        client-id: serviceClient
-        client-secret: secret
-        grant-type: client_credentials
-        access-token-uri: http://localhost:8080/oauth/token
-        user-authorization-uri: http://localhost:8080/oauth/authorize
-
 spring:
   main:
     allow-bean-definition-overriding: true
