@@ -10,17 +10,6 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
-        - id: auth-server
-          uri: lb://auth-server
-          predicates:
-            - Path=/oauth/**
-        - id: resource-server
-          uri: lb://resource-server
-          predicates:
-            - Path=/api/**
-          filters:
-            - StripPrefix=1
 
 eureka:
   client:

@@ -12,8 +12,8 @@ security:
       client-id: serviceClient
       client-secret: secret
       grant-type: client_credentials
-      access-token-uri: http://localhost:8080/oauth/token
-      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: http://localhost:8080/auth-server/oauth/token
+      user-authorization-uri: http://localhost:8080/auth-server/oauth/authorize
 
 spring:
   main:
