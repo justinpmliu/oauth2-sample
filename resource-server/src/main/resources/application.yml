@@ -10,13 +10,14 @@ security:
   oauth2:
     resource:
       jwt:
-        key-uri: http://localhost:9080/oauth/token_key
+#        key-uri: http://localhost:9080/oauth/token_key
+        key-value: "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx9BzHL4SiiZpbQKTRpUS1UfvVY7zCVRF7fOiTEybH+HT10UG3iIdYE2dL3ldhOaYnz52L3ZkS/yCLsydNQL5neuxy47cGXBJWy5kYIWZDPs4Hu9Y0SDBzoCNrInGCRIqORnyLajsXxdw1ZKIO6h9uyBiYx2bkZgGFHVvrUZcHNxq/aS4cXStqsxnN/hUn6m9TU8A1MXLHOTp1Ny9bcjGxxmaCheN5JEwZI+TL8RSuW3QRaLNY2n5TKazt0V3TlBexz2teGx1qM1j//BDSl6mpqgychT4s/v90P7V7GVqN2Wk+OwR+dCEHma6dEpX61GPqt51XgZoI8eoFb210T5PmwIDAQAB\n-----END PUBLIC KEY-----"
 
 spring:
   application:
     name: resource-server
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/

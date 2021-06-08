@@ -10,6 +10,17 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+          predicates:
+            - Path="/"+serviceId+"/**"
+          filters:
+            - RewritePath="/"+serviceId+"/(?<remaining>.*)", "/${remaining}"
+      routes:
+        - id: resource-server
+          uri: http://localhost:9081
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
